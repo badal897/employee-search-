@@ -280,29 +280,7 @@ Renders the employee information
                 } );
             }
         },
-//not an important function
-         loadMoreEmployeeData: function(e) {
-            var scrollTop = App.pages.employeeSearch.mainContainer.scrollTop
-            var scrollHeight = App.pages.employeeSearch.mainContainer.scrollHeight - App.pages.employeeSearch.mainContainer.clientHeight;
-            var scrollWeight = scrollTop /scrollHeight ;
-            
-            // if((window.scrollY + $(window).height()) > App.settings.deviceHeight && (window.scrollY + $(window).height()) >= ($('#bodyRegion').height())) {
-            if(scrollWeight>=1){
-                if(App.sessionVars.loadMoreOn){
-                    return false;
-                }
-                App.sessionVars.loadMoreOn = true;
-                App.sessionVars.oasPageNumber = App.sessionVars.oasPageNumber + 1;
-                App.pages.oas.$el.find('.load_more_spinner_h').show();
-                App.controller.unbindScrollDetect();
-                setTimeout(function(){
-                    App.vent.on("stopLoadMoreSpinner", function() {
-                        App.controller.stopLoadMoreSpinner();
-                    });
-                    App.views.employeeSearch.loadMoreEmployeeData();
-            },400);
-            }
-        }
+
 
     } );
     
